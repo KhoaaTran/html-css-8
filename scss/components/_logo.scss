@@ -1,0 +1,28 @@
+@use '../abstracts';
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  @include abstracts.breakpoints(lg) {
+    gap: 10px;
+    margin-left: 10px;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145.455%;
+
+    @include abstracts.breakpoints(lg) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__img {
+    @include abstracts.breakpoints(lg) {
+      width: 24px;
+    }
+  }
+}
