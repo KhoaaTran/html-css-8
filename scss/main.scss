@@ -1,6 +1,3 @@
-@use './base/reset';
-@use './base/base';
-
-@use './grid' with (
-  $grid-gutter-width: 30px
-);
+@use './base';
+@use './layout';
+@use './components';
