@@ -4,7 +4,13 @@
   display: none;
   left: 0;
   padding-top: 54px;
+
   width: min(1240px, 100%);
+
+  @include abstracts.breakpoints(lg) {
+    position: initial;
+    padding-top: 0;
+  }
   &__inner {
     --inner-padding: 30px;
 
@@ -22,24 +28,47 @@
       transform: translateX(-50%);
       filter: var(--dropdown-arrow-color);
     }
+
+    @include abstracts.breakpoints(lg) {
+      padding: 0 40px;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 }
 
 .top-menu {
   --main-column-width: 292px;
-  --max-inner-heigth: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+  --max-inner-heigth: calc(
+    min(582px, 100vh - 158px) - var(--inner-padding) * 2
+  );
   position: relative;
   &__main {
     width: var(--main-column-width);
     height: var(--max-inner-heigth);
     border-right: 1px solid var(--top-menu-border-color);
     overflow-y: auto;
+
+    @include abstracts.breakpoints(lg) {
+      width: 100%;
+      height: auto;
+      border-right: none;
+    }
   }
 }
 
 .menu-column {
   display: flex;
   gap: 14px;
+
+  @include abstracts.breakpoints(lg) {
+    margin-top: 10px;
+  }
 
   + .menu-column {
     margin-top: 20px;
@@ -53,6 +82,10 @@
 
     @include abstracts.breakpoints(xl) {
       display: none;
+    }
+
+    @include abstracts.breakpoints(lg) {
+      display: block;
     }
   }
 
@@ -81,10 +114,18 @@
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 150%;
+    @include abstracts.breakpoints(lg) {
+      margin-bottom: 10px;
+    }
+
   }
 
   &__list {
     margin-top: 19px;
+
+    @include abstracts.breakpoints(lg) {
+      margin-top: 0;
+    }
   }
 
   &__item {
@@ -118,6 +159,13 @@
 
   overflow-y: auto;
 
+  @include abstracts.breakpoints(lg) {
+    position: initial;
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    gap: 10px
+  }
+
   &--not-main {
     position: initial;
     inset: initial;
@@ -125,5 +173,10 @@
     grid-template-columns: repeat(4, 1fr);
     height: var(--max-inner-heigth);
     padding-left: 0;
+
+    @include abstracts.breakpoints(lg) {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
   }
 }

@@ -29,13 +29,6 @@
   @include abstracts.breakpoints(lg) {
     padding: 20px 0;
   }
-
-  &__more {
-    display: none;
-    @include abstracts.breakpoints(lg) {
-      display: block;
-    }
-  }
 }
 
 .navbar {
@@ -45,13 +38,57 @@
   }
 
   @include abstracts.breakpoints(lg) {
+    position: fixed;
+    inset: 0 50% 0 0;
+    background: #fff;
+    margin-left: 0;
+    z-index: 99;
+    padding: 20px 0;
+
+    translate: -100%;
+    transition: translate 0.5s;
+    &.show {
+      translate: 0;
+    }
+
+    &.show ~ &__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__close-btn {
     display: none;
+    padding: 10px 40px;
+    @include abstracts.breakpoints(lg) {
+      display: block;
+    }
+  }
+
+  &__overlay {
+    visibility: hidden;
+    opacity: 0;
+
+    @include abstracts.breakpoints(lg) {
+      position: fixed;
+      z-index: 9;
+      inset: 0;
+
+      transition: opacity, visibility;
+      transition-duration: 0.5s;
+
+      background: rgb($color: #000, $alpha: 0.4);
+    }
   }
 
   &__list {
     @extend %flexItemCenter;
-    // gap: 30px;
-    margin-left: -15px;
+    @include abstracts.breakpoints(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: auto;
+      height: calc(100% - 26px);
+    }
   }
 
   &__link {
@@ -63,14 +100,38 @@
     font-style: normal;
     font-weight: 500;
     line-height: 146.667%;
+    @include abstracts.breakpoints(lg) {
+      justify-content: space-between;
+      padding: 0 40px;
+      font-size: 1.6rem;
+      line-height: 150%; /* 150% */
+    }
   }
 
   &__arrow {
     margin-top: 3px;
+    @include abstracts.breakpoints(lg) {
+      rotate: -90deg;
+      transition: rotate .5s;
+   }
   }
 
-  &__item:hover .dropdown {
-    display: block;
+  &__item--active &__arrow  {
+    rotate: 0deg;
+  }
+
+  &__item {
+    &:hover .dropdown {
+      display: none;
+    }
+
+    @include abstracts.breakpoints(lg) {
+       width: 100%;
+    }
+
+    &--active .dropdown{
+      display: block !important;
+    }
   }
 }
 
@@ -84,10 +145,6 @@
 
   &__group {
     @extend %flexItemCenter;
-
-    @include abstracts.breakpoints(md) {
-      display: none;
-    }
 
     min-width: 50px;
     height: 50px;

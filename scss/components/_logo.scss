@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  @include abstracts.breakpoints(lg) {
+  @include abstracts.breakpoints(xl) {
     gap: 10px;
     margin-left: 10px;
   }
