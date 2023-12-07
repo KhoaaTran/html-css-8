@@ -11,6 +11,7 @@
     position: initial;
     padding-top: 0;
   }
+
   &__inner {
     --inner-padding: 30px;
 
@@ -38,6 +39,10 @@
       &::before {
         content: none;
       }
+    }
+
+    @include abstracts.breakpoints(sm) {
+      padding: 0 20px;
     }
   }
 }
