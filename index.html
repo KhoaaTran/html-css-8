@@ -47,12 +47,55 @@
     <script>
       load('#header', './templates/header.html')
     </script>
-    
+
     <div class="container">
-      <!-- Main -->
-      <h1>Home page</h1>
-      <a href="./sign-in.html">To sign in</a>
-      <a href="./sign-up.html">To sign up</a>
+      <!-- Slideshow -->
+      <div class="slideshow">
+        <div class="slideshow__inner">
+          <div class="slideshow__item">
+            <a href="#!" class="slideshow__link">
+              <picture>
+                <source
+                  media="(max-width: 767.98px)"
+                  srcset="./assets/img/slideshow/item-1-md.png"
+                />
+                <img
+                  src="./assets/img/slideshow/item-1.png"
+                  alt=""
+                  class="slideshow__img"
+                />
+              </picture>  
+            </a>
+          </div>
+
+          <div class="slideshow__item">
+            <a hre#!f="" class="slideshow__link">
+              <img
+                src="./assets/img/slideshow/item-1.png"
+                alt=""
+                class="slideshow__img"
+              />
+            </a>
+          </div>
+
+          <div class="slideshow__item">
+            <a hre#!f="" class="slideshow__link">
+              <img
+                src="./assets/img/slideshow/item-1.png"
+                alt=""
+                class="slideshow__img"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="slideshow__page">
+          <span class="slideshow__num">1</span>
+          <div class="slideshow__slider"></div>
+
+          <span class="slideshow__num">5</span>
+        </div>
+      </div>
 
       <!-- Footer -->
       <footer id="footer"></footer>
