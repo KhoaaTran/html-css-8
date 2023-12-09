@@ -1,0 +1,40 @@
+// Filter button
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--filter-btn-color);
+  height: 36px;
+  padding: 0 14px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 142.857%;
+
+  border-radius: 6px;
+  background: var(--filter-btn-bg);
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+
+  box-shadow: 0px 20px 60px var(--like-btn-shadow);
+
+  &:not(&--liked) &__icon--liked {
+    display: none;
+  }
+
+  &--liked &__icon {
+    display: none;
+  }
+
+  &__icon--liked {
+    margin-top: 8px;
+  }
+}
