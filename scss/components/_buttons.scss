@@ -38,3 +38,48 @@
     margin-top: 8px;
   }
 }
+
+// Buttons
+.btn {
+  height: 46px;
+  padding: 0 20px;
+  background: #f8f8fb;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  user-select: none;
+
+  + .btn {
+    margin-left: 20px;
+  }
+
+  &--text {
+    color: #9e9da8;
+    font-weight: 400;
+    background: transparent;
+  }
+
+  &--primary {
+    color: #171c28;
+    background: #ffb700;
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid #d2d1d6;
+  }
+
+  &--rounded {
+    border-radius: 99px;
+  }
+
+  &[disabled],
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
