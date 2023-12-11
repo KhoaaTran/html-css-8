@@ -1,4 +1,6 @@
 .product-card {
+  display: flex;
+  flex-direction: column;
   padding: 16px;
   border-radius: 20px;
   background: var(--product-card-bg);
@@ -41,13 +43,14 @@
     margin: 16px 0;
     font-size: 15px;
     font-weight: 400;
-    color: #9E9DA8;
+    color: #9e9da8;
     line-height: 146.667%;
   }
 
   &__row {
     display: flex;
     align-items: center;
+    margin-top: auto;
   }
 
   &__star {
