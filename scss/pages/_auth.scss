@@ -1,0 +1,146 @@
+@use '../abstracts';
+
+.auth {
+  display: flex;
+  min-height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+
+  &__intro,
+  &__content {
+    flex: 1;
+    padding: 0 30px;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    background: var(--auth-intro-bg);
+
+    &-logo,
+    &-next {
+      position: absolute;
+
+      left: 50%;
+      translate: -50%;
+    }
+
+    &-logo {
+      top: 25px;
+    }
+
+    &-next {
+      bottom: 50px;
+    }
+
+    &-img {
+      max-width: 100%;
+    }
+
+    &-text {
+      max-width: 412px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 144.444%;
+      color: var(--auth-intro-text-color)
+    }
+  }
+
+  &__content {
+    background: var(--auth-content-bg);
+    @include abstracts.screen(md) {
+      &.hide {
+        translate: 100%;
+      }
+      position: fixed;
+      inset: 0;
+      overflow-y: auto;
+      z-index: 1;
+      transition: translate 0.3s;
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      text-align: center;
+      padding: 50px 0;
+
+      @include abstracts.screen(md) {
+        padding: 25px 0;
+        height: 100%;
+      }
+      width: min(460px, 100%);
+    }
+  }
+
+  &__heading {
+    margin-top: 50px;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 146.667%;
+
+    color: var(--auth-heading-color);
+
+    @include abstracts.screen(md) {
+      margin-top: 40px;
+    }
+  }
+
+  &__desc {
+    color: #9e9da8;
+    margin-top: 10px;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+
+  &__form {
+    margin-top: 30px;
+    @include abstracts.screen(md) {
+      margin-top: 0;
+    }
+    width: 100%;
+  }
+
+  &__link {
+    color: #0071dc;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+
+  &__btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 30px;
+    @include abstracts.screen(md) {
+      margin-top: 40px;
+      gap: 20px;
+    }
+  }
+
+  &__text {
+    margin-top: 108px;
+    font-size: 1.8rem;
+    line-height: 144.444%;
+    color: #9e9da8;
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+      margin-top: auto;
+    }
+
+    &-link {
+      font-size: inherit;
+    }
+  }
+}

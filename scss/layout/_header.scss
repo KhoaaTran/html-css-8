@@ -30,6 +30,25 @@
   @include abstracts.screen(lg) {
     padding: 20px 0;
   }
+
+  &__logo {
+    @include abstracts.screen(xl) {
+      gap: 10px;
+      margin-left: 10px;
+    }
+
+    @include abstracts.screen(lg) {
+      &-img {
+        width: 24px;
+      }
+
+      &-title {
+        @include abstracts.screen(lg) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
 }
 
 .navbar {
@@ -162,6 +181,13 @@
 .top-act {
   @extend %flexItemCenter;
   margin-left: auto;
+  @include abstracts.screen(lg) {
+    &__sign-up,
+    &__sign-in {
+      font-size: 1.5rem;
+      height: 40px;
+    }
+  }
   @include abstracts.screen(md) {
     margin-left: 0;
   }
