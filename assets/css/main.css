@@ -2723,6 +2723,10 @@ html {
     height: 100%;
   }
 }
+.auth__content-inner--full {
+  height: 100vh;
+  justify-content: center;
+}
 .auth__heading {
   margin-top: 50px;
   font-size: 3rem;

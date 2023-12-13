@@ -78,6 +78,11 @@
         height: 100%;
       }
       width: min(460px, 100%);
+
+      &--full {
+        height: 100vh;
+        justify-content: center;
+      }
     }
   }
 
