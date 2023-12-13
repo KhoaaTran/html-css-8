@@ -48,7 +48,7 @@
       font-size: 1.8rem;
       font-weight: 500;
       line-height: 144.444%;
-      color: var(--auth-intro-text-color)
+      color: var(--auth-intro-text-color);
     }
   }
 
@@ -94,6 +94,10 @@
     }
   }
 
+  &__message {
+    margin-top: 30px;
+  }
+
   &__desc {
     color: #9e9da8;
     margin-top: 10px;
@@ -109,6 +113,10 @@
       margin-top: 0;
     }
     width: 100%;
+
+    &-forgot {
+      margin-top: -5px;
+    }
   }
 
   &__link {
@@ -141,6 +149,10 @@
 
     &-link {
       font-size: inherit;
+    }
+
+    &-forgot {
+      margin-top: 20px;
     }
   }
 }

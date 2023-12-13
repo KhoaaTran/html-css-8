@@ -2213,6 +2213,18 @@ html {
   top: 5px;
 }
 
+.message {
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  width: 100%;
+}
+.message--success {
+  border: 1.5px solid #46a05c;
+  background: rgba(157, 241, 189, 0.75);
+}
+
 .top-act__btn, .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
   display: flex;
   align-items: center;
@@ -2723,6 +2735,9 @@ html {
     margin-top: 40px;
   }
 }
+.auth__message {
+  margin-top: 30px;
+}
 .auth__desc {
   color: #9e9da8;
   margin-top: 10px;
@@ -2739,6 +2754,9 @@ html {
   .auth__form {
     margin-top: 0;
   }
+}
+.auth__form-forgot {
+  margin-top: -5px;
 }
 .auth__link {
   color: #0071dc;
@@ -2772,6 +2790,9 @@ html {
 }
 .auth__text-link {
   font-size: inherit;
+}
+.auth__text-forgot {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */
