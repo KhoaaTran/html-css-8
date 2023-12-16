@@ -189,6 +189,16 @@ input {
   }
 }
 
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
 .row > *, .container-fluid, .container {
   padding-left: calc(var(--grid-gutter-x) * 0.5);
   padding-right: calc(var(--grid-gutter-x) * 0.5);
@@ -1360,7 +1370,8 @@ html.dark {
   --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
   --search-bar-bg: #171c28;
   --product-content-card: #171c28;
-  --review-card-bg: #171C28;
+  --review-card-bg: #171c28;
+  --text-content-hr-bg: #5e5e5e;
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1409,6 +1420,7 @@ html {
   --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
   --search-bar-bg: #fff;
   --review-card-bg: #fafafd;
+  --text-content-hr-bg: #ebebeb;
 }
 @media (max-width: 991.98px) {
   html {
@@ -2335,9 +2347,36 @@ html {
   height: 100%;
   background: var(--review-card-bg);
 }
+@media (max-width: 1199.98px) {
+  .review-card {
+    padding: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .review-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 575.98px) {
+  .review-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 .review-card__content {
   display: flex;
   gap: 20px;
+}
+@media (max-width: 1199.98px) {
+  .review-card__content {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767.98px) {
+  .review-card__content {
+    flex-direction: row;
+  }
 }
 .review-card__avatar {
   width: 80px;
@@ -2357,14 +2396,121 @@ html {
 .review-card__rating {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 20px;
-  gap: 8px;
+}
+@media (max-width: 1199.98px) {
+  .review-card__rating {
+    margin-top: 15px;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 991.98px) {
+  .review-card__rating {
+    flex-direction: column-reverse;
+    row-gap: 10px;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 767.98px) {
+  .review-card__rating {
+    margin-top: 0;
+  }
+}
+@media (max-width: 575.98px) {
+  .review-card__rating {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 .review-card__rating-title {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 144.444%;
   margin-left: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 1199.98px) {
+  .review-card__rating-title {
+    margin-left: 0;
+  }
+}
+.review-card__stars {
+  display: flex;
+}
+
+.text-content {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.text-content h1,
+.text-content h2,
+.text-content h3,
+.text-content h4,
+.text-content h5,
+.text-content h6 {
+  font-weight: 600;
+}
+.text-content h1 {
+  font-size: 2.6rem;
+}
+.text-content h2 {
+  font-size: 2.2rem;
+}
+.text-content h3 {
+  font-size: 1.8rem;
+}
+.text-content h4 {
+  font-size: 1.6rem;
+}
+.text-content h5 {
+  font-size: 1.4rem;
+}
+.text-content h6 {
+  font-size: 1.2rem;
+}
+.text-content h1,
+.text-content h2,
+.text-content h3,
+.text-content h4,
+.text-content h5,
+.text-content h6,
+.text-content p,
+.text-content blockquote,
+.text-content img,
+.text-content figure,
+.text-content ul,
+.text-content ol,
+.text-content table {
+  margin: 20px 0;
+}
+.text-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+.text-content img + em {
+  display: block;
+  text-align: center;
+}
+.text-content a {
+  color: #0071dc;
+  text-decoration: underline;
+}
+.text-content blockquote {
+  padding: 20px;
+  background: rgba(0, 113, 220, 0.1);
+  border-left: 5px solid #0071dc;
+}
+.text-content blockquote p {
+  margin: 0;
+}
+.text-content hr {
+  border: none;
+  height: 1.5px;
+  background: var(--text-content-hr-bg);
+  margin: 40px 0;
 }
 
 .top-act__btn, .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
@@ -3175,9 +3321,12 @@ html {
   font-size: 22px;
   color: #9e9da8;
   font-weight: 500;
+  cursor: pointer;
+  user-select: none;
 }
 .prod-tab__item--active {
   color: inherit;
+  pointer-events: none;
 }
 .prod-tab__content {
   display: none;
@@ -3186,10 +3335,13 @@ html {
 .prod-tab__content--current {
   display: block;
 }
+.prod-tab__text-content {
+  margin-top: -20px;
+}
 
 .prod-content__heading {
   margin-bottom: 30px;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
   line-height: 141.667%;
 }

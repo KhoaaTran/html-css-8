@@ -238,9 +238,12 @@
     font-size: 22px;
     color: #9e9da8;
     font-weight: 500;
+    cursor: pointer;
+    user-select: none;
 
     &--active {
       color: inherit;
+      pointer-events: none;
     }
   }
 
@@ -251,12 +254,16 @@
       display: block;
     }
   }
+
+  &__text-content {
+    margin-top: -20px;
+  }
 }
 
 .prod-content {
   &__heading {
     margin-bottom: 30px;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 141.667%;
   }
