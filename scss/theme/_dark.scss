@@ -11,6 +11,7 @@ html.dark {
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow: rgba(0, 0, 0, 0.2);
   --top-act-group-separate: #ededf6;
+  --header-act-label-bold-color: #fff;
 
   @include abstracts.screen(lg) {
     --header-shadow-color: rgba(0, 0, 0, 0.2);
@@ -21,10 +22,12 @@ html.dark {
   --dropdown-shadow: rgba(23, 28, 40, 0.4);
   --dropdown-arrow-color: brightness(0) saturate(100%) invert(20%) sepia(25%)
     saturate(567%) hue-rotate(182deg) brightness(96%) contrast(86%);
-
   --top-menu-border-color: #171c28;
   --menu-column-icon-color: brightness(0) saturate(100%) invert(99%) sepia(6%)
     saturate(821%) hue-rotate(180deg) brightness(99%) contrast(98%);
+  --header-act-dropdown-bg: #363e4f;
+  --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+  --header-act-dropdown-border-color: #171c28;
 
   // Sidebar
   --sidebar-bg: #292e39;

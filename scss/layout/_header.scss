@@ -213,6 +213,10 @@
     }
   }
 
+  &__btn-wrap {
+    position: relative;
+  }
+
   &__btn {
     @extend %flexItemCenter;
     gap: 10px;
@@ -262,5 +266,122 @@
 
   &__qnt {
     margin-left: auto;
+  }
+}
+
+.act-dropdown {
+  position: absolute;
+  top: 50px;
+  right: -75px;
+  width: min(500px, 100vw);
+  padding-top: 30px;
+
+  transition: opacity, visibility;
+  transition-duration: 0.2s;
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 25px;
+    border-radius: 20px;
+    background: var(--header-act-dropdown-bg);
+    box-shadow: 0px 40px 90px 20px var(--header-act-dropdown-shadow);
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -13px;
+    right: 130px;
+    filter: var(--dropdown-arrow-color);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__view-all {
+    font-size: 1.6rem;
+    color: #0071dc;
+  }
+
+  &__list {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  &__bottom {
+    border-width: 1.5px 0;
+    border-style: solid;
+    border-color: var(--header-act-dropdown-border-color);
+    padding: 20px 0;
+    margin: 20px 0;
+  }
+
+  &__row {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--bold {
+      font-weight: 500;
+      color: var(--header-act-label-bold-color);
+    }
+  }
+
+  &__row + &__row {
+    margin-top: 20px;
+  }
+
+  &__checkout {
+    display: flex;
+    justify-content: flex-end;
+
+    &-btn {
+      min-width: 150px;
+      height: 45px;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.cart-preview-item {
+  text-align: left;
+
+  &__img-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid var(--header-act-dropdown-border-color);
+    border-radius: 10px;
+  }
+
+  &__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__title {
+    margin-top: 14px;
+    font-size: 1.4rem;
+    line-height: 142.857%;
+  }
+
+  &__price {
+    margin-top: 6px;
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 }

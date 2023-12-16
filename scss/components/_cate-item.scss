@@ -52,8 +52,9 @@
     font-weight: 700;
     line-height: 145.455%;
     color: var(--cate-item-title-color);
-    @include abstracts.screen(sm) {
-      font-size: 1.8rem;
+
+    @include abstracts.screen(md) {
+      font-size: 2rem;
     }
   }
 
@@ -61,6 +62,7 @@
     margin-top: 6px;
     font-size: 1.6rem;
     line-height: 150%;
+
     @include abstracts.screen(sm) {
       font-size: 1.4rem;
     }
