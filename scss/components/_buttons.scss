@@ -52,6 +52,7 @@
   font-size: 1.8rem;
   font-weight: 500;
   border-radius: 6px;
+  white-space: nowrap;
   user-select: none;
 
   + .btn {
@@ -60,8 +61,13 @@
     }
   }
 
+  &--small {
+    height: 40px;
+    padding: 0 18px;
+  }
+
   &--text {
-    color: #9e9da8;
+    // color: #171c28;
     font-weight: 400;
     background: transparent;
   }
