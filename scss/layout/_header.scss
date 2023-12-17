@@ -215,6 +215,9 @@
 
   &__btn-wrap {
     position: relative;
+    &:hover .act-dropdown {
+      display: block;
+    }
   }
 
   &__btn {
@@ -222,6 +225,8 @@
     gap: 10px;
     padding: 13px 20px;
     cursor: pointer;
+
+    
   }
 
   &__title {
@@ -270,6 +275,7 @@
 }
 
 .act-dropdown {
+  display: none;
   position: absolute;
   top: 50px;
   right: -75px;
@@ -327,6 +333,12 @@
     border-color: var(--header-act-dropdown-border-color);
     padding: 20px 0;
     margin: 20px 0;
+  }
+
+  &__separate {
+    margin: 20px 0;
+    height: 1px;
+    background: var(--header-act-dropdown-border-color);
   }
 
   &__row {

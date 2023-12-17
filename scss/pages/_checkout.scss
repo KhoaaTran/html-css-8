@@ -1,0 +1,259 @@
+@use '../abstracts';
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+
+  &__breadcrumbs {
+    background: var(--checkout-breadcrumbs-bg);
+  }
+}
+
+.checkout-container {
+  margin-top: 30px;
+  @include abstracts.screen(md) {
+    margin-top: 20px;
+  }
+}
+
+.cart-info + .cart-info {
+  margin-top: 30px;
+}
+
+.cart-info {
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--checkout-cart-info-bg);
+  box-shadow: 0px 20px 60px 10px var(--checkout-cart-info-shadow);
+
+  &__list {
+    margin-top: -30px;
+  }
+
+  &__bottom {
+    margin-top: 30px;
+  }
+
+  &__continue {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    &-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
+
+    &-icon {
+      rotate: 90deg;
+    }
+  }
+
+  &__row,
+  &__continue-link {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  &__row + &__row {
+    margin-top: 15px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--bold {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__separate {
+    margin: 30px 0;
+    height: 1px;
+    background: var(--checkout-border-color);
+  }
+
+  &__btn {
+    margin-top: 30px;
+  }
+
+  &__sub-label {
+    font-weight: 400;
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--checkout-border-color);
+
+  @include abstracts.screen(md) {
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+
+  @include abstracts.screen(sm) {
+    gap: 16px;
+    &:last-child {
+      border: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__thumb {
+    width: 175px;
+    height: 175px;
+    object-fit: contain;
+
+    @include abstracts.screen(xxl) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include abstracts.screen(lg) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+
+    @include abstracts.screen(md) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &-left {
+      flex: 1;
+
+      @include abstracts.screen(sm) {
+        padding-right: 10px;
+      }
+    }
+
+    &-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      @include abstracts.screen(md) {
+        align-items: flex-start;
+        gap: 13px;
+      }
+    }
+  }
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 144.444%;
+  }
+
+  &__price-wrap {
+    color: #9e9da8;
+    margin: 16px 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__status {
+    color: #67b044;
+  }
+
+  &__ctrl {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include abstracts.screen(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    &--md-block {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: 1px solid var(--checkout-border-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__total-price {
+    text-align: right;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  &__ctrl-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #9e9da8;
+    height: 44px;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+.gift-item {
+  display: flex;
+  gap: 20px;
+
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 14px;
+    background: rgba(118, 68, 225, 0.1);
+
+    box-shadow: 0px 20px 60px 10px var(--checkout-gift-shadow);
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1a162e;
+  }
+
+  &__desc {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    line-height: 142.857%;
+  }
+}
