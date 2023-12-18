@@ -7,6 +7,16 @@ $error-color: #ed4337;
     pointer-events: none;
   }
 
+  &__row {
+    display: flex;
+    column-gap: 15px;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1;
+    }
+  }
+
   &__group {
     margin-top: 30px;
 
@@ -36,16 +46,61 @@ $error-color: #ed4337;
     }
   }
 
+  &__text-area,
   &__text-input {
     display: flex;
     align-items: center;
-    height: 50px;
     padding: 0 12px;
     border-radius: 10px;
     border: 1.5px solid #d2d1d6;
 
+    &--small {
+      border-radius: 8px;
+    }
+
     &:focus-within {
       border-color: #77dae6;
+    }
+  }
+
+  &__text-area {
+    height: 100px;
+    padding: 12px;
+
+    &-input {
+      resize: none;
+    }
+  }
+
+  &__text-input {
+    height: 50px;
+    &--small {
+      &:not(.form__text-area) {
+        height: 42px;
+      }
+
+      .form__input,
+      .form__text-area-input {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__input,
+  &__text-area-input {
+    flex: 1;
+    height: 100%;
+
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 144.444%;
+
+    &::placeholder {
+      color: var(--form-placeholder-color);
+    }
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
     }
   }
 
