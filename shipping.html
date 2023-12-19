@@ -74,19 +74,19 @@
         <!-- Breadcrumbs -->
         <div class="checkout-container">
           <ul class="breadcrumbs checkout-page__breadcrumbs">
-            <li>
+            <li class="form__option">
               <a href="./" class="breadcrumbs__link">
                 Home
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li>
+            <li class="form__option">
               <a href="./checkout.html" class="breadcrumbs__link">
                 Checkout
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li>
+            <li class="form__option">
               <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">
                 Shipping
               </a>
@@ -577,7 +577,7 @@
     </div>
 
     <!-- Modal: address new shipping address -->
-    <div id="add-new-address" class="modal show" style="--content-width: 600px">
+    <div id="add-new-address" class="modal hide" style="--content-width: 600px">
       <button
         class="modal__close d-none js-toggle"
         toggle-target="#add-new-address"
@@ -673,7 +673,8 @@
                   name="city"
                   id="city"
                   placeholder="City/District/Town"
-                  class="form__input"
+                  class="form__input js-toggle"
+                  toggle-target="#city-dialog"
                 />
 
                 <img
@@ -681,6 +682,63 @@
                   alt=""
                   class="form__input-icon-error"
                 />
+
+                <div id="city-dialog" class="form__select-dialog hide">
+                  <button
+                    class="form__close-dialog d-none d-sm-block js-toggle"
+                    toggle-target="#city-dialog"
+                  >
+                    &times;
+                  </button>
+                  <div class="form__search">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      id=""
+                      class="form__search-input"
+                    />
+                    <img
+                      src="./assets/icons/search.svg"
+                      alt=""
+                      class="form__search-icon icon"
+                    />
+                  </div>
+                  <ul class="form__option-list">
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option form__option--current">
+                      Ho Chi Minh
+                    </li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                    <li class="form__option">Ho Chi Minh</li>
+                    <li class="form__option">Da Nang</li>
+                    <li class="form__option">Ha Noi</li>
+                  </ul>
+                </div>
               </div>
               <p class="form__error">Phone must be at least 10 characters</p>
             </div>
@@ -700,10 +758,7 @@
             >
               Cancel
             </button>
-            <button
-              class="btn btn--primary modal__btn btn--no-margin"
-             
-            >
+            <button class="btn btn--primary modal__btn btn--no-margin">
               Create
             </button>
           </div>

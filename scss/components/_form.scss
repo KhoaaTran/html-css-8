@@ -73,6 +73,7 @@ $error-color: #ed4337;
   }
 
   &__text-input {
+    position: relative;
     height: 50px;
     &--small {
       &:not(.form__text-area) {
@@ -121,6 +122,107 @@ $error-color: #ed4337;
 
     @include abstracts.screen(md) {
       font-size: 1.6rem;
+    }
+  }
+
+  &__select-dialog {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+
+    translate: 0 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, visibility translate;
+    transition-duration: 0.3s;
+    box-shadow: 0 0 5px var(--form-select-dialog-shadow);
+
+    bottom: 44px;
+    left: 10px;
+    background: var(--form-select-dialog-bg);
+    padding-bottom: 10px;
+    border: 1px solid #d2d1d6;
+    border-radius: 10px;
+    max-height: 310px;
+    min-width: 230px;
+
+    @include abstracts.screen(md) {
+      max-height: 280px;
+    }
+
+    @include abstracts.screen(sm) {
+      position: fixed;
+      min-width: initial;
+      max-height: initial;
+      inset: 0;
+      border-radius: 0;
+    }
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      translate: 0;
+    }
+  }
+
+  &__close-dialog {
+    font-size: 3rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px;
+  }
+
+  &__search {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    border-bottom: 1px solid #d2d1d6;
+    padding-right: 12px;
+    height: 38px;
+
+    &-input {
+      flex: 1;
+      height: 100%;
+      padding: 0 5px 0 12px;
+      font-size: 1.6rem;
+    }
+
+    &-icon {
+      width: 18px;
+    }
+
+    @include abstracts.screen(lg) {
+      height: 42px;
+    }
+
+    @include abstracts.screen(sm) {
+      flex-direction: row-reverse;
+      padding-right: 0;
+      padding-left: 12px;
+      margin-top: 45px;
+    }
+  }
+
+  &__option-list {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  &__option {
+    padding: 14px 12px;
+    font-size: 1.4rem;
+
+    &--current {
+      background: #ffb700;
+      font-weight: 500;
+    }
+
+    &:not(&--current):hover {
+      background: var(--form-option-hover);
+      cursor: pointer;
     }
   }
 
