@@ -1398,6 +1398,7 @@ html.dark {
   --checkout-cart-info-shadow: rgba(23, 28, 40, 0.2);
   --checkout-border-color: #d2d1d6;
   --checkout-gift-shadow: rgba(23, 28, 40, 0.2);
+  --checkout-payment-item-bg: #292e39;
   --modal-bg: #292e39;
   --modal-shadow: rgba(23, 28, 40, 0.4);
 }
@@ -1461,6 +1462,7 @@ html {
   --checkout-cart-info-shadow: rgba(237, 237, 246, 0.2);
   --checkout-border-color: #d2d1d6;
   --checkout-gift-shadow: rgba(237, 237, 246, 0.2);
+  --checkout-payment-item-bg: #f6f6f6;
   --modal-bg:#fff;
   --modal-shadow: rgba(237, 237, 246, 0.2);
 }
@@ -1901,6 +1903,10 @@ html {
 .btn--rounded {
   border-radius: 99px;
 }
+.btn--danger {
+  color: var(--button-danger-color, #fff);
+  background: #ed4337;
+}
 .btn[disabled], .btn--disabled {
   pointer-events: none;
   opacity: 0.5;
@@ -2151,6 +2157,12 @@ html {
 .form__row > * {
   flex: 1;
 }
+@media (max-width: 767.98px) {
+  .form__row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
 .form__group {
   margin-top: 30px;
 }
@@ -2223,6 +2235,7 @@ html {
 .form__input {
   flex: 1;
   height: 100%;
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 144.444%;
@@ -2277,12 +2290,18 @@ html {
   visibility: visible;
   translate: 0;
 }
+.form__dialog-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 25px;
+}
 .form__close-dialog {
   font-size: 3rem;
   position: absolute;
   right: 0;
-  top: 0;
-  padding: 5px 10px;
+  top: 10px;
+  padding: 5px 15px;
 }
 .form__search {
   display: flex;
@@ -2311,7 +2330,10 @@ html {
     flex-direction: row-reverse;
     padding-right: 0;
     padding-left: 12px;
-    margin-top: 45px;
+    margin-top: 10px;
+    border: 1px solid #d2d1d6;
+    margin: 30px 30px 15px;
+    border-radius: 20px;
   }
 }
 .form__option-list {
@@ -2319,17 +2341,27 @@ html {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+@supports (-webkit-touch-callout: none) {
+  .form__option-list {
+    padding-bottom: 300px;
+  }
+}
 .form__option {
   padding: 14px 12px;
   font-size: 1.4rem;
 }
 .form__option--current {
-  background: #ffb700;
+  background: rgba(255, 183, 0, 0.5);
   font-weight: 500;
 }
 .form__option:not(.form__option--current):hover {
   background: var(--form-option-hover);
   cursor: pointer;
+}
+@media (max-width: 991.98px) {
+  .form__option {
+    padding: 18px 20px;
+  }
 }
 .form__input-icon-error {
   display: none;
@@ -2394,6 +2426,12 @@ html {
   font-weight: 500;
   line-height: 142.857%;
   margin-bottom: 10px;
+}
+.form__label--medium {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
 }
 .form__select-wrap {
   display: flex;
@@ -2507,7 +2545,7 @@ html {
   flex: 1;
   height: 100%;
   padding-left: 15px;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 142.857%;
   font-weight: 500;
 }
@@ -3755,15 +3793,37 @@ html {
   background: var(--checkout-cart-info-bg);
   box-shadow: 0px 20px 60px 10px var(--checkout-cart-info-shadow);
 }
+.cart-info__form {
+  margin-bottom: 30px;
+}
+.cart-info__form-row {
+  flex-direction: row;
+  gap: 20px;
+}
+.cart-info__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
 .cart-info__heading {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 141.667%;
 }
+.cart-info__heading--lv2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 32px; /* 145.455% */
+}
 .cart-info__sub-heading {
   margin: 30px 0;
   font-size: 1.8rem;
   font-weight: 500;
+}
+.cart-info__desc {
+  margin-top: 6px;
+  font-size: 1.4rem;
+  line-height: 146.667%;
 }
 .cart-info__list {
   margin-top: -30px;
@@ -3813,6 +3873,28 @@ html {
 }
 .cart-info__sub-label {
   font-weight: 400;
+}
+.cart-info__edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8rem;
+}
+.cart-info__checkbox-input {
+  appearance: none;
+}
+.cart-info__checkbox-input::before {
+  content: url("../icons/checkbox-uncheck.svg");
+}
+.cart-info__checkbox-input:not(.cart-info__checkbox-input:checked) {
+  filter: var(--icon-color);
+}
+.cart-info__checkbox-input:checked::before {
+  content: url("../icons/checkbox-checked.svg");
+}
+.cart-info__pay {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .cart-item {
@@ -4022,18 +4104,6 @@ html {
     flex-direction: column;
   }
 }
-.address-card__checkbox-input {
-  appearance: none;
-}
-.address-card__checkbox-input::before {
-  content: url("../icons/checkbox-uncheck.svg");
-}
-.address-card__checkbox-input:not(.address-card__checkbox-input:checked) {
-  filter: var(--icon-color);
-}
-.address-card__checkbox-input:checked::before {
-  content: url("../icons/checkbox-checked.svg");
-}
 .address-card__left {
   flex: 1;
   display: flex;
@@ -4079,10 +4149,75 @@ html {
   height: 100%;
   align-items: flex-end;
 }
-.address-card__ctrl-btn {
+
+.payment-item {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--checkout-payment-item-bg);
+}
+@media (max-width: 575.98px) {
+  .payment-item {
+    align-items: flex-start;
+  }
+}
+.payment-item--center {
+  align-items: center;
+}
+.payment-item--pointer {
+  cursor: pointer;
+}
+.payment-item__thumb {
+  width: 70px;
+  height: 54px;
+  object-fit: cover;
+}
+.payment-item__content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 20px;
+}
+@media (max-width: 575.98px) {
+  .payment-item__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.payment-item__info {
+  flex: 1;
+}
+.payment-item__title {
   font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
+}
+.payment-item__desc, .payment-item__detail {
+  margin-top: 4px;
+  font-size: 1.5rem;
+  line-height: 146.667%;
+}
+.payment-item__detail {
+  margin-top: 0;
+  color: #0071dc;
+}
+.payment-item__checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+}
+.payment-item__cost {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
+  color: #9e9da8;
+}
+.payment-item__checkbox-input:checked + .payment-item__cost {
+  color: inherit;
 }
 
 /*# sourceMappingURL=main.css.map */

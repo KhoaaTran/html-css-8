@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,19 +74,19 @@
         <!-- Breadcrumbs -->
         <div class="checkout-container">
           <ul class="breadcrumbs checkout-page__breadcrumbs">
-            <li class="form__option">
+            <li>
               <a href="./" class="breadcrumbs__link">
                 Home
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li class="form__option">
+            <li>
               <a href="./checkout.html" class="breadcrumbs__link">
                 Checkout
                 <img src="./assets/icons/arrow-right.svg" alt="" />
               </a>
             </li>
-            <li class="form__option">
+            <li>
               <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">
                 Shipping
               </a>
@@ -138,12 +138,12 @@
                       <div class="address-card__left">
                         <div class="address-card__choose">
                           <!-- Custom checkbox -->
-                          <label class="address-card__checkbox">
+                          <label class="cart-info__checkbox">
                             <input
-                              class="address-card__checkbox-input"
-                              type="checkbox"
+                              class="cart-info__checkbox-input"
+                              type="radio"
                               checked
-                              name=""
+                              name="shipping-address"
                             />
                           </label>
                         </div>
@@ -165,7 +165,7 @@
                       <div class="address-card__right">
                         <div class="address-card__ctrl">
                           <button
-                            class="address-card__ctrl-btn js-toggle"
+                            class="cart-info__edit-btn js-toggle"
                             toggle-target="#add-new-address"
                           >
                             <img
@@ -184,11 +184,11 @@
                       <div class="address-card__left">
                         <div class="address-card__choose">
                           <!-- Custom checkbox -->
-                          <label class="address-card__checkbox">
+                          <label class="cart-info__checkbox">
                             <input
-                              class="address-card__checkbox-input"
-                              type="checkbox"
-                              name=""
+                              class="cart-info__checkbox-input"
+                              type="radio"
+                              name="shipping-address"
                             />
                           </label>
                         </div>
@@ -211,7 +211,7 @@
                       <div class="address-card__right">
                         <div class="address-card__ctrl">
                           <button
-                            class="address-card__ctrl-btn js-toggle"
+                            class="cart-info__edit-btn js-toggle"
                             toggle-target="#add-new-address"
                           >
                             <img
@@ -503,7 +503,7 @@
                 </div>
 
                 <a
-                  href="#!"
+                  href="./payment.html"
                   class="btn btn--primary btn--rounded cart-info__btn"
                   >Continue to checkout</a
                 >
@@ -672,6 +672,7 @@
                   type="text"
                   name="city"
                   id="city"
+                  readonly
                   placeholder="City/District/Town"
                   class="form__input js-toggle"
                   toggle-target="#city-dialog"
@@ -683,13 +684,18 @@
                   class="form__input-icon-error"
                 />
 
+                <!-- Select dialog -->
                 <div id="city-dialog" class="form__select-dialog hide">
+                  <h2 class="form__dialog-heading d-none d-sm-block">
+                    City/District/Town
+                  </h2>
                   <button
                     class="form__close-dialog d-none d-sm-block js-toggle"
                     toggle-target="#city-dialog"
                   >
                     &times;
                   </button>
+
                   <div class="form__search">
                     <input
                       type="text"
