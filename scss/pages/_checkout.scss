@@ -112,6 +112,14 @@
       font-size: 2.2rem;
       font-weight: 700;
     }
+
+    &--md-block {
+      @include abstracts.screen(md) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
   }
 
   &__separate {
@@ -156,12 +164,21 @@
     width: 100%;
     border-radius: 10px;
   }
+
+  &__check-all {
+    margin: 20px 0;
+  }
+
+  &__checkout-all {
+    @include abstracts.screen(md) {
+    width: 100%;
+    }
+  }
 }
 
 .cart-item {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  // gap: 30px;
   padding: 30px 0;
   border-bottom: 1px solid var(--checkout-border-color);
 
@@ -171,7 +188,7 @@
   }
 
   @include abstracts.screen(sm) {
-    gap: 16px;
+    // gap: 16px;
     &:last-child {
       border: none;
       padding-bottom: 0;
@@ -181,6 +198,7 @@
   &__thumb {
     width: 175px;
     height: 175px;
+    margin: 0 30px 0 20px;
     object-fit: contain;
 
     @include abstracts.screen(xxl) {
@@ -192,11 +210,16 @@
       width: 100px;
       height: 100px;
     }
+
+    @include abstracts.screen(lg) {
+      margin: 0 16px;
+    }
   }
 
   &__content {
     flex: 1;
     display: flex;
+    column-gap: 20px;
 
     @include abstracts.screen(md) {
       flex-direction: column;
@@ -204,15 +227,17 @@
     }
 
     &-left {
+      display: flex;
+      flex-direction: column;
       flex: 1;
 
       @include abstracts.screen(sm) {
-        padding-right: 10px;
+        // padding-right: 10px;
       }
     }
 
     &-right {
-      flex: 1;
+      // flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -245,7 +270,32 @@
     color: #67b044;
   }
 
+  &__checkout-btn {
+    width: min(200px, 100%);
+  }
+
+  &__ctrl-wrap {
+    margin-top: auto;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @include abstracts.screen(xl) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include abstracts.screen(md) {
+      gap: 20px;
+    }
+
+    @include abstracts.screen(sm) {
+      gap: 10px;
+    }
+  }
+
   &__ctrl {
+    margin-top: auto;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -278,7 +328,8 @@
 
   &__total-price {
     text-align: right;
-    font-size: 2.2rem;
+    font-size: 2rem;
+    line-height: 144.444%;
     font-weight: 700;
   }
 
