@@ -1,0 +1,17 @@
+
+.form-card {
+  &__label {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  &__bottom {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__row {
+    column-gap: 30px;
+  }
+}

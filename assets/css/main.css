@@ -3989,6 +3989,12 @@ html {
   justify-content: space-between;
   gap: 30px;
 }
+.cart-info__back-arrow {
+  width: 50px;
+  padding-right: 20px;
+  position: relative;
+  top: 5px;
+}
 .cart-info__heading {
   font-size: 2.4rem;
   font-weight: 700;
@@ -4534,6 +4540,19 @@ html {
 }
 .profile__desc {
   margin-bottom: 16px;
+}
+
+.form-card__label {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.form-card__bottom {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+.form-card__row {
+  column-gap: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
