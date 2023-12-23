@@ -3061,7 +3061,7 @@ html {
 }
 @media (max-width: 1199.98px) {
   .navbar {
-    margin-left: 50px;
+    margin-left: 20px;
     border-radius: 0px 20px 20px 0px;
   }
 }
@@ -3234,12 +3234,25 @@ html {
   height: 30px;
   background: var(--top-act-group-separate);
 }
+.top-act__user {
+  position: relative;
+}
+.top-act__user:hover .act-dropdown {
+  display: block;
+}
 .top-act__avatar {
   width: 50px;
   height: 50px;
   border-radius: 8px;
   display: block;
   cursor: pointer;
+}
+.top-act__dropdown {
+  right: -10px !important;
+  width: min(250px, 100vw) !important;
+}
+.top-act__dropdown-arrow {
+  right: 23px !important;
 }
 
 .nav-btn {
@@ -3366,6 +3379,39 @@ html {
   margin-top: 6px;
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.user-menu__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-menu__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.user-menu__name {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.user-menu__list {
+  margin-top: 15px;
+}
+.user-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  font-size: 1.6rem;
+}
+.user-menu__separate {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
 }
 
 .footer {
